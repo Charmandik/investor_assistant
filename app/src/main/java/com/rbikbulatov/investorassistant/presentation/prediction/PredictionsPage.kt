@@ -5,7 +5,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun PredictionsPage() {
+fun PredictionsPage(
+    viewModel: PredictionViewModel
+) {
     Column {
         Text(text = "Прогноз")
         Text(text = "Итог на конец года ")

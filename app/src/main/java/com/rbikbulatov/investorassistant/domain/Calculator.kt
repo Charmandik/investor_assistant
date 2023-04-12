@@ -1,5 +1,6 @@
 package com.rbikbulatov.investorassistant
 
+import com.rbikbulatov.investorassistant.domain.Invest
 import java.math.BigDecimal
 import kotlin.math.pow
 
@@ -14,13 +15,10 @@ import kotlin.math.pow
     S – общая сумма на конец графика.*/
 
 fun calculate(
-    startMoney: Int,
-    yearPercent: Double,
-    yearCount: Int,
-    incomePeriod: Int
+    invest: Invest,
 ): BigDecimal {
-    val countOfIncomePeriodInYear = (12 / incomePeriod)
+    val countOfIncomePeriodInYear = (12 / invest.incomePeriod)
     val incomePerYear =
-        (1 + (yearPercent / 100) / countOfIncomePeriodInYear).pow(countOfIncomePeriodInYear * yearCount)
-    return BigDecimal(startMoney * incomePerYear)
+        (1 + (invest.yearPercent / 100) / countOfIncomePeriodInYear).pow(countOfIncomePeriodInYear * invest.yearCount)
+    return BigDecimal(invest.startMoney * incomePerYear)
 }
