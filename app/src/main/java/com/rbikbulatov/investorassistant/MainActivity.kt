@@ -17,9 +17,11 @@ import com.rbikbulatov.compose_learning_app.ui.theme.InvestorAssistantTheme
 import com.rbikbulatov.investorassistant.domain.Destinations.ADD_INVEST
 import com.rbikbulatov.investorassistant.domain.Destinations.MAIN_PAGE
 import com.rbikbulatov.investorassistant.domain.Destinations.MY_INVESTS
+import com.rbikbulatov.investorassistant.domain.Destinations.PREDICTION
 import com.rbikbulatov.investorassistant.presentation.MainPage
 import com.rbikbulatov.investorassistant.presentation.addInvest.AddInvest
 import com.rbikbulatov.investorassistant.presentation.myInvests.MyInvests
+import com.rbikbulatov.investorassistant.presentation.prediction.PredictionsPage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +43,8 @@ class MainActivity : ComponentActivity() {
                         composable(MAIN_PAGE) {
                             MainPage(
                                 onAddInvestClick = { navController.navigate(ADD_INVEST) },
-                                onMyInvestClick = { navController.navigate(MY_INVESTS) }
+                                onMyInvestClick = { navController.navigate(MY_INVESTS) },
+                                onPredictionClick = { navController.navigate(PREDICTION) }
                             )
                         }
 
@@ -51,6 +54,10 @@ class MainActivity : ComponentActivity() {
 
                         composable(MY_INVESTS) {
                             MyInvests()
+                        }
+
+                        composable(PREDICTION) {
+                            PredictionsPage()
                         }
                     }
                 }

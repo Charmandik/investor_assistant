@@ -9,14 +9,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MainPage(onAddInvestClick: () -> Unit, onMyInvestClick: () -> Unit) {
+fun MainPage(
+    onAddInvestClick: () -> Unit,
+    onMyInvestClick: () -> Unit,
+    onPredictionClick: () -> Unit
+) {
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
         Button(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             onClick = onAddInvestClick,
-            enabled = true
         ) {
             Text(text = "Добавить инвестицию", color = Color.Black)
         }
@@ -26,7 +29,6 @@ fun MainPage(onAddInvestClick: () -> Unit, onMyInvestClick: () -> Unit) {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             onClick = onMyInvestClick,
-            enabled = true
         ) {
             Text(text = "Мои инвестиции", color = Color.Black)
         }
@@ -45,8 +47,7 @@ fun MainPage(onAddInvestClick: () -> Unit, onMyInvestClick: () -> Unit) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
-            onClick = { /*TODO*/ },
-            enabled = false
+            onClick = onPredictionClick,
         ) {
             Text(text = "Прогнозы", color = Color.Black)
         }
